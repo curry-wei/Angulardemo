@@ -1,13 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
   <title>Angulardemo</title>
-  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="assets/angular-popups.js"></script>
+
+  <script>
+    angular.module('app', ['angular-popups']);
+  </script>
+  <link rel="stylesheet" href="assets/show-source-code.css">
 </head>
+
+
 <body>
-  <app-root></app-root>
+
+<button id="btn" ng-click="dialog={open: true}">打开对话框</button>
+<dialog ng-if="dialog.open" for="btn" close="dialog.open=false" close-action="esc outerchick">
+  <div dialog-title>消息</div>
+  <div dialog-content>hello world</div>
+</dialog>
+
+<script id="show-source-code" src="assets/show-source-code.js"></script>
 </body>
 </html>
